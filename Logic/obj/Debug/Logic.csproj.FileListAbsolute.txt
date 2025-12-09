@@ -1,0 +1,6 @@
+C:\Users\10eme\Documents\IUT\QUAL\TP-Notebook4-Gonzalez\Logic\bin\Debug\Logic.dll
+C:\Users\10eme\Documents\IUT\QUAL\TP-Notebook4-Gonzalez\Logic\bin\Debug\Logic.pdb
+C:\Users\10eme\Documents\IUT\QUAL\TP-Notebook4-Gonzalez\Logic\obj\Debug\Logic.csproj.AssemblyReference.cache
+C:\Users\10eme\Documents\IUT\QUAL\TP-Notebook4-Gonzalez\Logic\obj\Debug\Logic.csproj.CoreCompileInputs.cache
+C:\Users\10eme\Documents\IUT\QUAL\TP-Notebook4-Gonzalez\Logic\obj\Debug\Logic.dll
+C:\Users\10eme\Documents\IUT\QUAL\TP-Notebook4-Gonzalez\Logic\obj\Debug\Logic.pdb

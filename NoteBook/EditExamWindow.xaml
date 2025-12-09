@@ -1,0 +1,36 @@
+﻿<Window x:Class="NoteBook.EditExamWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NoteBook"
+        mc:Ignorable="d"
+        Title="Create an exam" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Module :"/>
+        <ComboBox x:Name="modules" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+        <Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Teacher :" />
+        <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Date :" />
+        <DatePicker x:Name="date" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" />
+        <TextBox x:Name="teacher" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" />
+        <CheckBox x:Name="isAbsent" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Is absent" />
+        <Label Grid.Row="2" Grid.Column="0" Content="Score :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox x:Name="score" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+        <Label Grid.Row="2" Grid.Column="2" Content="Coef :" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox x:Name="coef" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" />
+        <Button Grid.Column="1" Grid.Row="3" Content="Validate" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="10" Click="Validate" />
+        <Button Grid.Column="3" Grid.Row="3" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10" Click="Cancel" />
+    </Grid>
+</Window>
