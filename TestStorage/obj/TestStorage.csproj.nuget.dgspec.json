@@ -1,14 +1,14 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\TestStorage\\TestStorage.csproj": {}
+    "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\TestStorage\\TestStorage.csproj": {}
   },
   "projects": {
-    "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\Logic\\Logic.csproj": {
+    "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\Logic\\Logic.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\Logic\\Logic.csproj",
+        "projectUniqueName": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\Logic\\Logic.csproj",
         "projectName": "Logic",
-        "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\Logic\\Logic.csproj",
+        "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\Logic\\Logic.csproj",
         "UsingMicrosoftNETSdk": false,
         "frameworks": {
           "net472": {
@@ -20,17 +20,17 @@
         "net472": {}
       }
     },
-    "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\Storage\\Storage.csproj": {
+    "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\Storage\\Storage.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\Storage\\Storage.csproj",
+        "projectUniqueName": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\Storage\\Storage.csproj",
         "projectName": "Storage",
-        "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\Storage\\Storage.csproj",
+        "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\Storage\\Storage.csproj",
         "UsingMicrosoftNETSdk": false,
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\Logic\\Logic.csproj": {
-                "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\Logic\\Logic.csproj"
+              "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\Logic\\Logic.csproj": {
+                "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\Logic\\Logic.csproj"
               }
             }
           }
@@ -40,14 +40,14 @@
         "net472": {}
       }
     },
-    "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\TestStorage\\TestStorage.csproj": {
+    "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\TestStorage\\TestStorage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\TestStorage\\TestStorage.csproj",
+        "projectUniqueName": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\TestStorage\\TestStorage.csproj",
         "projectName": "TestStorage",
-        "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\TestStorage\\TestStorage.csproj",
+        "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\TestStorage\\TestStorage.csproj",
         "packagesPath": "C:\\Users\\10eme\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\TestStorage\\obj\\",
+        "outputPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\TestStorage\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -68,11 +68,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\Logic\\Logic.csproj": {
-                "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\Logic\\Logic.csproj"
+              "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\Logic\\Logic.csproj": {
+                "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\Logic\\Logic.csproj"
               },
-              "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\Storage\\Storage.csproj": {
-                "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\Storage\\Storage.csproj"
+              "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\Storage\\Storage.csproj": {
+                "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\Storage\\Storage.csproj"
               }
             }
           }

@@ -20,11 +20,14 @@ namespace NoteBook
     /// </summary>
     public partial class ListExamsWindow : Window
     {
-        private Logic.Notebook notebook;        
-        public ListExamsWindow(Logic.Notebook nb)
+        private Logic.Notebook notebook;
+        private Logic.IStorage storage;
+
+        public ListExamsWindow(Logic.Notebook nb, Logic.IStorage storage)
         {
             InitializeComponent();
-            notebook = nb;            
+            notebook = nb;
+            this.storage = storage;
             DrawExams();
         }
 
@@ -44,6 +47,40 @@ namespace NoteBook
             foreach(AvgScore avg in notebook.ComputeScores())
             {
                 scores.Items.Add(avg);
+            }
+        }
+
+        private void ExamDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (exams.SelectedItem is Exam ex)
+            {
+                EditExamWindow win = new EditExamWindow(notebook, storage, ex);
+                win.ShowDialog();
+                DrawExams();
+            }
+        }
+
+        private void EditSelected(object sender, RoutedEventArgs e)
+        {
+            if (exams.SelectedItem is Exam ex)
+            {
+                EditExamWindow win = new EditExamWindow(notebook, storage, ex);
+                win.ShowDialog();
+                DrawExams();
+            }
+        }
+
+        private void DeleteSelected(object sender, RoutedEventArgs e)
+        {
+            if (exams.SelectedItem is Exam ex)
+            {
+                var res = MessageBox.Show("Delete selected exam?","Confirm",MessageBoxButton.YesNo,MessageBoxImage.Warning);
+                if(res==MessageBoxResult.Yes)
+                {
+                    notebook.RemoveExam(ex);
+                    storage.Save(notebook);
+                    DrawExams();
+                }
             }
         }
     }

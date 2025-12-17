@@ -5,21 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NoteBook"
         mc:Ignorable="d"
-        Title="IUT Notebook" Height="450" Width="800">
+        Title="IUT Notebook" WindowState="Maximized" MinWidth="800" MinHeight="600"
+        Background="{StaticResource BackgroundBrush}">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Image Grid.Row="1" Grid.Column="1" Source="carnet.png"/>
-        <Button Grid.Column="0" Grid.Row="0" Content="Edit Units and modules" Margin="20" Click="GoEditUnits" />
-        <Button Grid.Column="2" Grid.Row="0" Content="Edit exams" Margin="20" Click="GoEditExams" />
-        <Button Grid.Column="1" Grid.Row="2" Content="Compute score" Margin="20" Click="GoListExams" />
+
+        <!-- En-tête -->
+        <Border Grid.Row="0" Background="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,0,0,1" Padding="20,30">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="IUT Notebook" FontSize="32" FontWeight="Bold" Foreground="{StaticResource TextBrush}" HorizontalAlignment="Center" />
+                <TextBlock Text="Manage your units, exams and scores" FontSize="14" Foreground="{StaticResource TextSecondaryBrush}" HorizontalAlignment="Center" Margin="0,8,0,0" />
+            </StackPanel>
+        </Border>
+
+        <!-- Contenu principal -->
+        <Grid Grid.Row="1" Margin="40">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="1" Source="carnet.png" Width="280" Height="280" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.9"/>
+        </Grid>
+
+        <!-- Boutons d'action -->
+        <Border Grid.Row="2" Background="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,1,0,0" Padding="20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Style="{StaticResource PrimaryButton}" Click="GoEditUnits" MinWidth="160" MinHeight="50">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="🎓" FontSize="20" Margin="0,0,10,0" />
+                        <TextBlock Text="Edit Units" FontSize="16" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
+                <Button Style="{StaticResource PrimaryButton}" Click="GoEditExams" MinWidth="160" MinHeight="50">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="📝" FontSize="20" Margin="0,0,10,0" />
+                        <TextBlock Text="Edit Exams" FontSize="16" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
+                <Button Style="{StaticResource PrimaryButton}" Click="GoListExams" MinWidth="160" MinHeight="50">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="📊" FontSize="20" Margin="0,0,10,0" />
+                        <TextBlock Text="Compute Scores" FontSize="16" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

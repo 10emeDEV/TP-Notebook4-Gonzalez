@@ -5,46 +5,129 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NoteBook"
         mc:Ignorable="d"
-        Title="ListExamsWindow" Height="450" Width="800">
+        Title="Exams &#59; Scores" MinWidth="900" MinHeight="600"
+        Background="{StaticResource BackgroundBrush}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="80" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Button Content="Close" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100" MinHeight="30" Click="CloseWindow" />
-        <ListBox x:Name="exams" Grid.Row="1" Margin="10" HorizontalContentAlignment="Stretch">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="{Binding DateExam}" />
-                        <Label Grid.Column="1" Content="{Binding Module.Name}" />
-                        <Label Grid.Column="2" Content="{Binding Teacher}" />
-                        <Label Grid.Column="3" Content="{Binding Score}" />
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="Date examen" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold" />
-            <Label Grid.Column="1" Content="Nom du module" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold"/>
-            <Label Grid.Column="2" Content="Enseignant" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold"/>
-            <Label Grid.Column="3" Content="Note" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold"/>
+
+        <!-- En-tête -->
+        <Border Grid.Row="0" Background="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,0,0,1" Padding="20">
+            <TextBlock Text="Exams and Scores Management" FontSize="24" FontWeight="Bold" Foreground="{StaticResource TextBrush}" />
+        </Border>
+
+        <!-- Section Exams -->
+        <Grid Grid.Row="1" Margin="20,20,20,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Exams List" FontSize="16" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,12" />
+
+            <Border Grid.Row="1" Background="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="8">
+                <ListBox x:Name="exams" MouseDoubleClick="ExamDoubleClick" AlternationCount="2" Background="Transparent" BorderThickness="0" Padding="4">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Padding" Value="12" />
+                            <Setter Property="Margin" Value="2" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="Background" Value="Transparent" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource AccentLight}" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FFEAF4FB" />
+                                </Trigger>
+                                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                                    <Setter Property="Background" Value="#FFF8FAFC" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="8">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="120"/>
+                                        <ColumnDefinition Width="80"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{Binding DateExam, StringFormat=d}" VerticalAlignment="Center" FontSize="13" Foreground="{StaticResource TextBrush}" />
+                                    <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="16,0,0,0">
+                                        <TextBlock Text="{Binding Module.Name}" FontWeight="Bold" FontSize="14" Foreground="{StaticResource TextBrush}" />
+                                        <TextBlock Text="{Binding Teacher}" FontStyle="Italic" FontSize="12" Foreground="{StaticResource TextSecondaryBrush}" Margin="0,2,0,0" />
+                                    </StackPanel>
+                                    <TextBlock Grid.Column="2" Text="{Binding Coef, StringFormat='Coef: {0:F2}'}" VerticalAlignment="Center" FontSize="13" Foreground="{StaticResource TextSecondaryBrush}" />
+                                    <TextBlock Grid.Column="3" Text="{Binding Score}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold" Foreground="{StaticResource PrimaryBrush}" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
         </Grid>
 
-        <ListBox Grid.Row="2" Margin="10" x:Name="scores" />
+        <!-- Boutons d'action pour les exams -->
+        <Border Grid.Row="2" Background="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,1,0,1" Padding="20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Style="{StaticResource PrimaryButton}" Content="Edit" MinWidth="120" MinHeight="42" Click="EditSelected" />
+                <Button Style="{StaticResource PrimaryButton}" Content="Create New" MinWidth="120" MinHeight="42" />
+                <Button Style="{StaticResource DangerButton}" Content="Delete" MinWidth="120" MinHeight="42" Click="DeleteSelected" />
+            </StackPanel>
+        </Border>
+
+        <!-- Section Scores -->
+        <Grid Grid.Row="3" Margin="20,10,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Average Scores" FontSize="16" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,12" />
+
+            <Border Grid.Row="1" Background="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="8">
+                <ListBox x:Name="scores" Background="Transparent" BorderThickness="0" Padding="4">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Padding" Value="12" />
+                            <Setter Property="Margin" Value="2" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="Background" Value="Transparent" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FFEAF4FB" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="120"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Element.Name}" FontWeight="SemiBold" FontSize="14" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" />
+                                <TextBlock Grid.Column="1" Text="{Binding Average, StringFormat='Average: {0:F2}'}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="SemiBold" Foreground="{StaticResource SuccessBrush}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
+        </Grid>
+
+        <!-- Pied de page -->
+        <Border Grid.Row="4" Background="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,1,0,0" Padding="20">
+            <Button Style="{StaticResource SecondaryButton}" Content="Close" HorizontalAlignment="Right" MinWidth="120" MinHeight="42" Click="CloseWindow" />
+        </Border>
     </Grid>
 </Window>

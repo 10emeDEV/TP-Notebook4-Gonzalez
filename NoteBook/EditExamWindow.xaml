@@ -5,32 +5,90 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NoteBook"
         mc:Ignorable="d"
-        Title="Create an exam" Height="450" Width="800">
+        Title="Create / Edit Exam" MinWidth="700" MinHeight="500"
+        Background="{StaticResource BackgroundBrush}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Module :"/>
-        <ComboBox x:Name="modules" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
-        <Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Teacher :" />
-        <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Date :" />
-        <DatePicker x:Name="date" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" />
-        <TextBox x:Name="teacher" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" />
-        <CheckBox x:Name="isAbsent" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Is absent" />
-        <Label Grid.Row="2" Grid.Column="0" Content="Score :" HorizontalAlignment="Right" VerticalAlignment="Center" />
-        <TextBox x:Name="score" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
-        <Label Grid.Row="2" Grid.Column="2" Content="Coef :" HorizontalAlignment="Right" VerticalAlignment="Center" />
-        <TextBox x:Name="coef" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" />
-        <Button Grid.Column="1" Grid.Row="3" Content="Validate" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="10" Click="Validate" />
-        <Button Grid.Column="3" Grid.Row="3" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="10" Click="Cancel" />
+
+        <!-- En-tête -->
+        <Border Grid.Row="0" Background="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,0,0,1" Padding="20">
+            <TextBlock x:Name="PageTitle" Text="Create Exam" FontSize="24" FontWeight="Bold" Foreground="{StaticResource TextBrush}" />
+        </Border>
+
+        <!-- Formulaire -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="30">
+                <!-- Ligne 1: Module et Date -->
+                <Grid Margin="0,0,0,24">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Module *" FontSize="14" FontWeight="SemiBold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8" />
+                    <ComboBox x:Name="modules" Grid.Row="1" Grid.Column="0" MinHeight="42" Margin="0,0,12,0" />
+
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Date *" FontSize="14" FontWeight="SemiBold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8" />
+                    <DatePicker x:Name="date" Grid.Row="1" Grid.Column="1" MinHeight="42" Margin="12,0,0,0" />
+                </Grid>
+
+                <!-- Ligne 2: Professeur et Absent -->
+                <Grid Margin="0,0,0,24">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Teacher" FontSize="14" FontWeight="SemiBold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8" />
+                    <TextBox x:Name="teacher" Grid.Row="1" Grid.Column="0" MinHeight="42" Margin="0,0,12,0" />
+
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Status" FontSize="14" FontWeight="SemiBold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8" />
+                    <CheckBox x:Name="isAbsent" Grid.Row="1" Grid.Column="1" Content="Is absent" Margin="12,8,0,0" />
+                </Grid>
+
+                <!-- Ligne 3: Score et Coefficient -->
+                <Grid Margin="0,0,0,24">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Score (0-20) *" FontSize="14" FontWeight="SemiBold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8" />
+                    <TextBox x:Name="score" Grid.Row="1" Grid.Column="0" MinHeight="42" Margin="0,0,12,0" />
+
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Coefficient *" FontSize="14" FontWeight="SemiBold" Foreground="{StaticResource TextBrush}" Margin="0,0,0,8" />
+                    <TextBox x:Name="coef" Grid.Row="1" Grid.Column="1" MinHeight="42" Margin="12,0,0,0" />
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Pied de page avec boutons -->
+        <Border Grid.Row="2" Background="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,1,0,0" Padding="20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,0">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="0,0,8,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Button Style="{StaticResource SecondaryButton}" Content="Cancel" MinWidth="120" MinHeight="42" Click="Cancel" />
+                <Button Style="{StaticResource PrimaryButton}" Content="Validate" MinWidth="120" MinHeight="42" Click="Validate" />
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

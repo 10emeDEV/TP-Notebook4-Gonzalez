@@ -117,5 +117,14 @@ namespace Logic
 
             return scores.ToArray();
         }
+
+        /// <summary>
+        /// Remove an exam
+        /// </summary>
+        /// <param name="e">exam to remove</param>
+        public void RemoveExam(Exam e)
+        {
+            exams.Remove(e);
+        }
     }
 }

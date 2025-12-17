@@ -3622,11 +3622,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\TestLogic\\TestLogic.csproj",
+      "projectUniqueName": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\TestLogic\\TestLogic.csproj",
       "projectName": "TestLogic",
-      "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\TestLogic\\TestLogic.csproj",
+      "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\TestLogic\\TestLogic.csproj",
       "packagesPath": "C:\\Users\\10eme\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\TestLogic\\obj\\",
+      "outputPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\TestLogic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3647,8 +3647,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\Logic\\Logic.csproj": {
-              "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP-Notebook4-Gonzalez\\Logic\\Logic.csproj"
+            "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\Logic\\Logic.csproj": {
+              "projectPath": "C:\\Users\\10eme\\Documents\\IUT\\QUAL\\TP10\\R304-TD4-Etud\\Logic\\Logic.csproj"
             }
           }
         }

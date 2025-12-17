@@ -45,7 +45,7 @@ namespace NoteBook
 
         private void GoListExams(object sender, RoutedEventArgs e)
         {
-            ListExamsWindow second = new ListExamsWindow(notebook);
+            ListExamsWindow second = new ListExamsWindow(notebook, storage);
             second.Show();
         }
     }

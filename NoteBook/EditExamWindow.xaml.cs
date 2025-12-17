@@ -29,13 +29,31 @@ namespace NoteBook
             notebook = nb;
             this.storage = storage;
             DrawModules();
-
             exam = new Exam();
+            FillFieldsFromExam();
+            this.Title = "Create Exam";
+        }
+
+        // Constructor to edit an existing exam
+        public EditExamWindow(Notebook nb, IStorage storage, Exam existingExam)
+        {
+            InitializeComponent();
+            notebook = nb;
+            this.storage = storage;
+            DrawModules();
+
+            exam = existingExam ?? new Exam();
+            FillFieldsFromExam();
+            this.Title = existingExam != null ? "Edit Exam" : "Create Exam";
+        }
+
+        private void FillFieldsFromExam()
+        {
             date.SelectedDate = exam.DateExam;
             coef.Text = exam.Coef.ToString();
             isAbsent.IsChecked = exam.IsAbsent;
             score.Text = exam.Score.ToString();
-            teacher.Text = exam.Teacher;           
+            teacher.Text = exam.Teacher;
             modules.SelectedItem = exam.Module;
         }
 
@@ -64,7 +82,11 @@ namespace NoteBook
                 exam.Score = (float)Convert.ToDouble(score.Text);
                 exam.Teacher = teacher.Text;
 
-                notebook.AddExam(exam);
+                // If exam is not already present, add it
+                if (!notebook.ListExams().Contains(exam))
+                {
+                    notebook.AddExam(exam);
+                }
                 storage.Save(notebook);
                 Close();
             }
